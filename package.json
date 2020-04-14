@@ -1,5 +1,5 @@
 {
-  "homepage": "https://jimmyjimmbles.github.io/ben_the_smartass/",
+  "homepage": "https://jimmyjimmbles.github.io/ben_the_smartass",
   "name": "benbot",
   "version": "1.0.0",
   "description": "",
@@ -29,7 +29,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "start": "webpack-dev-server --open --mode development",
     "build": "webpack --mode production"
   },
