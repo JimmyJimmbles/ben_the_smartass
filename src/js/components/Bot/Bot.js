@@ -49,7 +49,7 @@ const Bot = () => {
     if (!audioState) {
       setAudioState(true);
 
-      // ben.say('Why the hell, did you wake me up? What do you want.');
+      ben.say('Why the hell, did you wake me up? What do you want.');
     } else {
       setAudioState(false);
       ben.shutUp();
