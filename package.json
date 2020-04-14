@@ -1,5 +1,6 @@
 {
-  "name": "jaybot",
+  "homepage": "https://jimmyjimmbles.github.io/ben_the_smartass/",
+  "name": "benbot",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -16,6 +17,7 @@
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
     "babel-loader": "^8.1.0",
+    "gh-pages": "^2.2.0",
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.2.0",
     "node-sass": "^4.13.1",
@@ -26,6 +28,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "webpack-dev-server --open --mode development",
     "build": "webpack --mode production"
   },
