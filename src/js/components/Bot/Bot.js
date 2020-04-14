@@ -1,5 +1,5 @@
 // vendors
-import React, { useState, useEffect, useLayoutEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Artyom from 'artyom.js';
 
 // functions and components
@@ -40,7 +40,7 @@ const Bot = () => {
     if (!ben.isRecognizing() || !ben.isSpeaking()) {
       setTimeout(() => {
         ben.obey();
-      }, 1500);
+      }, 2000);
     }
   });
 
@@ -49,7 +49,7 @@ const Bot = () => {
     if (!audioState) {
       setAudioState(true);
 
-      ben.say('Why the hell, did you wake me up? What do you want.');
+      // ben.say('Why the hell, did you wake me up? What do you want.');
     } else {
       setAudioState(false);
       ben.shutUp();

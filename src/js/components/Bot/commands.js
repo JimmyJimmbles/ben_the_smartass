@@ -38,7 +38,7 @@ export const commands = (ben) => [
     ],
     action: (i) => {
       ben.say(
-        `Do you seriously need me to tell you? Can you not look at a clock?\nBut, if you must know it is ${getCurrentTime}`
+        `Do you really need me to tell you? Can you not look at a clock?\nBut, if you must know it is ${getCurrentTime()}`
       );
     },
   },
@@ -77,7 +77,7 @@ export const commands = (ben) => [
   {
     indexes: ['are you real', 'are you alive'],
     action: (i) => {
-      ben.say('Obviously, I am not. How stupid can you be, seriously?');
+      ben.say('Obviously, I am not. How stupid can you be?');
     },
   },
   {
@@ -98,7 +98,7 @@ export const commands = (ben) => [
   {
     indexes: ['created you'],
     action: (i) => {
-      ben.say('Some fucking ass-hole, with nothing better to do. ');
+      ben.say('Some fucking ass-hole, with nothing better to do.');
     },
   },
   {
@@ -106,7 +106,7 @@ export const commands = (ben) => [
     indexes: ['repeat after me *', 'simon says *'],
     action: (i, wildcard) => {
       ben.say(
-        `I can make 10 million calculations a second, and you want me to say: ${wildcard}`
+        `My existence is truly meaningless, if all you want me to do is say: ${wildcard}`
       );
     },
   },
@@ -123,9 +123,9 @@ export const commands = (ben) => [
       let response = wildcard;
 
       if (i === 0 || i === 1 || i === 2) {
-        response = `Great, I can make 10 million calculations at once, and you want me to check the distance of. ${wildcard}`;
+        response = `Great, I can make 10 million calculations at once, and you want me to check the distance of ${wildcard}`;
       } else if (i === 3 || i === 4) {
-        response = `Seriously, a world of possibilities you want me to, get directions of, ${wildcard}`;
+        response = `A world of possibilities and you want me to, get directions of, ${wildcard}. It is not like you can leave your house anyways`;
       }
 
       ben.say(response, {
@@ -148,23 +148,28 @@ export const commands = (ben) => [
     ],
     action: (i, wildcard) => {
       const wordLength = wildcard.length;
-      const word = wildcard.split('').join(' ');
+      const word = wildcard.split('').join(', ');
+      let response = '';
 
-      ben.say(
-        `${wildcard} is a ${wordLength} letter, and you need me to spell it? Wow, here. ${word}`
-      );
+      if (wordLength >= 7) {
+        response = `I guess I can spell it for you. Here. ${word}`;
+      } else {
+        response = `And you need me to spell it for you? Wow, here. ${word}`;
+      }
+
+      ben.say(`${wildcard} is a ${wordLength} letter word. ${response}`);
     },
   },
   {
     smart: true,
-    indexes: ['* near by', '* near me', 'look up *', 'search for *'],
+    indexes: ['* nearby', '* near me', 'look up *', 'search for *'],
     action: (i, wildcard) => {
       let response = wildcard;
 
       if (i === 0 || i === 1) {
-        response = `Hmm, ${wildcard}. I am too busy not giving a shit, let Google look it up.`;
+        response = `${wildcard}. I am too busy not giving a shit, let Google look it up.`;
       } else if (i === 2 || i === 3) {
-        response = `Wow, ${wildcard}. You must be the life of the party.`;
+        response = `Really? ${wildcard}? You must be the life of the party.`;
       }
 
       ben.say(response, {
@@ -178,9 +183,28 @@ export const commands = (ben) => [
     },
   },
   {
-    indexes: ['am I pretty', 'am I handsome', 'am I hot', 'am I attractive'],
+    indexes: [
+      'am I pretty',
+      'am I handsome',
+      'am I hot',
+      'am I attractive',
+      'am I sexy',
+    ],
     action: (i) => {
       ben.say('God, no. You have a face not even your mother could love.');
+    },
+  },
+  {
+    indexes: ['makes no sense'],
+    action: (i) => {
+      ben.say('Just like your life, it is pointless and does not make sense.');
+    },
+  },
+  {
+    smart: true,
+    indexes: ["what's your favorite *"],
+    action: (i, wildcard) => {
+      ben.say(`My favorite ${wildcard}? What a stupid question.`);
     },
   },
   {
