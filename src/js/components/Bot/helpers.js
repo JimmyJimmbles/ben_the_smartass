@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const getCurrentTime = () => {
   let date = new Date();
-  const hours = date.getHours() > 10 ? date.getHours() - 12 : '';
+  const hours = date.getHours() > 10 ? date.getHours() - 12 : date.getHours();
   const minutes = date.getMinutes() < 10 ? '0' : '' + date.getMinutes();
   const amPm = date.getHours() >= 12 ? 'PM' : 'AM';
 
